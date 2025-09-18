@@ -80,7 +80,7 @@ function Chessboard({ setData, toggleTurn, setTotalMaterial }) {
     const [oldPlace, setOldPlace] = useState(null);
     const [newPlace, setNewPlace] = useState(null);
     const [showPromotionPopUp, setShowPromotionPopUp] = useState(false);
-    const [showMate, setShowMate] = useState(false);
+    const [showMate, setShowMate] = useState({ finish: false, message: ''});
     const [turn, setTurn] = useState("white");
     const [check, setCheck] = useState(false);
     const [history, setHistory] = useState([]);// le tableau des coups joués
@@ -297,7 +297,10 @@ function Chessboard({ setData, toggleTurn, setTotalMaterial }) {
             setCheck(true);
             if (isInCheckMate(newBoard, nextTurn)) {
                 console.log('ECHEC ET MAT !!!!!!!!!!!!');
-                setShowMate(true);
+                setShowMate({
+                    finish : true,
+                    message : ((nextTurn === "white") ? "BLACK" : "WHITE") + ' has won by CHECKMATE !!!'}
+                );
             } else {
                 console.log('Roi en echec !!!');
             }
@@ -305,6 +308,10 @@ function Chessboard({ setData, toggleTurn, setTotalMaterial }) {
             if (!hasAnyLegalMove(newBoard, nextTurn)) {
                 // mais n'a aucun mouvement legal, alors c'est pat (stalemate : match nul)
                 console.log('STALEMATE ! Partie nulle.');
+                setShowMate({
+                    finish : true,
+                    message : 'STALEMATE ! Partie NULLE.'}
+                );
             }
         }
     }
@@ -798,11 +805,11 @@ function Chessboard({ setData, toggleTurn, setTotalMaterial }) {
         </div>
     </div>
     )}
-    {showMate && (
+    {showMate.finish && (
         <div className="mate-big-box">
             <div className="mate-content-box">
                 {/* {<span>CONGRATULATIONS !!!</span>} */}
-                <span>{(turn === "white") ? "BLACK" : "WHITE"} has won by CHECKMATE !!!</span>
+                <span>{showMate.message}</span>
             </div>
         </div>
     )}
