@@ -1,0 +1,135 @@
+.main-chessboard {
+    width: fit-content;
+    display: grid;
+    grid-template-rows: repeat(8, min(12vw, 60px));
+    grid-template-columns: repeat(8, min(12vw, 60px));
+    position: relative;
+    /* Inversion */
+    /*grid-auto-flow: column;
+    direction: rtl;
+    writing-mode: vertical-rl;*/
+}
+.main-chessboard > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.main-chessboard > div .square-name{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    display: none;
+    font-weight: bold;
+    cursor: default;
+}
+.main-chessboard > div.white {
+    background-color: rgb(235, 236, 208);
+}
+.main-chessboard > div.black {
+    background-color: rgb(115, 149, 82);
+}
+.main-chessboard > div.selected {
+    background-color: rgb(187, 243, 113);
+}
+.main-chessboard > div.old-place {
+    background-color: rgb(187, 243, 113);
+}
+.main-chessboard > div.new-place {
+    background-color: rgb(187, 243, 113);
+}
+.main-chessboard > div .isHighlighted {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: 35%;
+    background-color: rgb(75, 75, 75, 0.30);
+    border-radius: 50%;
+}
+.main-chessboard > div .isHighlighted.can-capture {
+    z-index: 11;
+    background-color: transparent;
+    border: 6px solid rgb(75, 75, 75, 0.30);
+    width: 80%;
+    height: 80%;
+}
+.main-chessboard img {
+    width: 99%;
+    height: 99%;
+    cursor: pointer;
+    z-index: 9;
+    border-radius: 4px;
+}
+.main-chessboard img.black-piece {
+    transform: rotate(180deg);
+}
+.wK.alert-check, .bK.alert-check {
+    border: 2px solid rgb(221, 40, 40);
+}
+
+.promotion-pop-up, .mate-big-box {
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+}
+
+.promotion-content, .mate-content-box {
+    width: 300px;
+    max-width: 300px;
+    min-height: 250px;
+    background-color: white;
+    text-align: center;
+    padding: 1rem 1rem;
+}
+
+.mate-content-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.promotion-options {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.promotion-options img{
+    max-width: 3.5rem;
+    max-height: 3.5rem;
+    cursor: pointer;
+}
+
+.undo-move {
+    position: absolute;
+    width: 120px;
+    height: 2rem;
+    color: white;
+    background-color: rgb(190, 190, 190, 0.5);
+}
+.undo-move:hover {
+    background-color: rgb(143, 236, 143, 0.5);
+    border: 1px solid lightgreen;
+}
+.undo-move.udm-up {
+    bottom: calc(100%);
+    left: 0;
+    transform: rotate(180deg);
+}
+.undo-move.udm-down {
+    top: calc(100%);
+    right: 0;
+}

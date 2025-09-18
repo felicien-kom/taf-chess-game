@@ -1,0 +1,43 @@
+.game-board {
+    max-width: min(calc(8 * 12vw), calc(8 * 60px));
+}
+
+.black-box, .white-box {
+    min-height: 2rem;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.25rem;
+}
+.black-box {
+    transform: rotate(180deg);
+}
+
+.has-trait {
+    background-color:  rgba(115, 197, 115, 0.35);
+}
+
+.history-box {
+    color: white;
+    display: flex;
+    gap: 0.5rem;
+    max-width: 100%;
+    overflow-x: auto;
+    max-width: 512px;
+    min-height: 48px;
+    padding: 0.5rem 0;
+}
+.history-box > div {
+    min-width: 90px;
+}
+.history-box > div.new-box{
+    margin-left: 1.25rem;
+    display: flex;
+    gap: 0.5rem;
+    min-width: 96px;
+}
+.history-box > div.new-box:first-child{
+    margin-left: 0;
+}
+.history-box .big-turn{
+    color: rgb(199, 199, 199);
+}

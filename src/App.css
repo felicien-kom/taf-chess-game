@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Normalize perso */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 16px;
+    scroll-behavior: smooth;
+    /* Definition de mon rem et su scroll-behaviour smooth partout */
+}
+html, body{
+    height: 100%;
+}
+body{
+    /*background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font);*/
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+button{
+    cursor: pointer;
+    outline: none;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    transition: scale 0.1s ease;
+    font-family: inherit;
+    font-size: inherit;
+    scale: 1;
+}
+ul li{
+    list-style-type: none;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+input, select, textarea{
+    outline: none;
+    border: none;
+    font-family: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+/* Scrollbars */
+/* Pour WebKit (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px; /* Pour scroll horizontal */
+}
+
+*::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+/* Pour Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #eee;
+}
+
+/************************/
+/* Le container (#root) */
+#root {
+  max-width: 1440px;
+  height: 100%;/* Very important for relatives values */
+  /*min-height: 100%;*/
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(48, 46, 43);
+  font-family: 'Inter', Georgia, 'Times New Roman', Times, serif
+}
